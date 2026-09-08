@@ -1,0 +1,78 @@
+{
+  "name": "codex-sub-imagen",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Reliable GPT Image 2.5 generation and editing for Pi through Codex, with reference images, retries, and output controls.",
+  "type": "module",
+  "license": "MIT",
+  "author": "JEY (https://github.com/the-jey)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-jey/codex-sub-imagen.git"
+  },
+  "homepage": "https://github.com/the-jey/codex-sub-imagen#readme",
+  "bugs": {
+    "url": "https://github.com/the-jey/codex-sub-imagen/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "codex",
+    "openai",
+    "image-generation",
+    "image-editing",
+    "gpt-image-2.5",
+    "gpt-image-2.5-sunburst",
+    "gpt-image-2.5-flare"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "types": "./index.ts",
+  "files": [
+    "extensions",
+    "index.ts",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md"
+  ],
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "validate": "npm run check"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-ai": {
+      "optional": true
+    },
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "typebox": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.85.1",
+    "@earendil-works/pi-coding-agent": "^0.85.1",
+    "@types/node": "^22.19.19",
+    "typebox": "^1.3.7",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  }
+}

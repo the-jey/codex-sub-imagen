@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a reproducible problem with Codex Sub Imagen
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Remove all credentials and private images before submitting logs.
+  - type: input
+    id: version
+    attributes:
+      label: Extension version or commit
+      placeholder: v0.3.0 or commit SHA
+    validations:
+      required: true
+  - type: input
+    id: pi-version
+    attributes:
+      label: Pi version
+      placeholder: pi --version
+    validations:
+      required: true
+  - type: dropdown
+    id: model
+    attributes:
+      label: Image model
+      options:
+        - gpt-image-2.5-sunburst
+        - gpt-image-2.5-flare
+        - Not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Include the expected behavior and the actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Configure ...
+        2. Ask Pi to ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Do not include tokens, account identifiers, or private image data.
+      render: shell
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Sensitive information
+      options:
+        - label: I removed credentials, account identifiers, private prompts, and private images.
+          required: true
