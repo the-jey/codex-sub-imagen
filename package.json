@@ -1,6 +1,6 @@
 {
   "name": "codex-sub-imagen",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "Reliable GPT Image 2.5 generation and editing for Pi through Codex, with reference images, retries, and output controls.",
   "type": "module",
@@ -17,6 +17,8 @@
   "keywords": [
     "pi-package",
     "pi-extension",
+    "pi-skill",
+    "agent-skill",
     "codex",
     "openai",
     "image-generation",
@@ -34,6 +36,7 @@
   "types": "./index.ts",
   "files": [
     "extensions",
+    "skills",
     "index.ts",
     "CHANGELOG.md",
     "LICENSE",
@@ -43,6 +46,9 @@
   "pi": {
     "extensions": [
       "./index.ts"
+    ],
+    "skills": [
+      "./skills"
     ]
   },
   "scripts": {

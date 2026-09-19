@@ -82,6 +82,38 @@ After installing or updating from another terminal, restart Pi or run:
 /reload
 ```
 
+## Cross-harness skill (`codex-imagen`)
+
+The package also ships an [Agent Skill](https://agentskills.io/specification)
+(`skills/codex-imagen/SKILL.md`) so harnesses other than Pi — Claude Code,
+Codex CLI, Grok, Zed, … — can use the same backend through `pi -p` plus the
+`codex_generate_image` tool. Auth still reuses the local `openai-codex` login;
+no key is duplicated.
+
+- In Pi the skill loads automatically with the package: call the
+  `codex_generate_image` tool directly, no shell-out needed.
+- From another harness, drive it with the wrapper script (run from the user
+  project directory):
+
+```bash
+node <skill-dir>/scripts/generate.mjs --check
+node <skill-dir>/scripts/generate.mjs --prompt "Cinematic poster, sharp typography" \
+  --quality xhigh --size 1536x1024 --save project
+node <skill-dir>/scripts/generate.mjs --prompt "Keep the subject, studio background" \
+  --ref ./reference.png --format webp --compression 90 --save project
+```
+
+`<skill-dir>` is the folder containing the skill's `SKILL.md`. To register it
+elsewhere, symlink or copy it, e.g.:
+
+```bash
+ln -s ~/.pi/agent/git/github.com/the-jey/codex-sub-imagen/skills/codex-imagen ~/.claude/skills/codex-imagen
+ln -s ~/.pi/agent/git/github.com/the-jey/codex-sub-imagen/skills/codex-imagen ~/.codex/skills/codex-imagen
+```
+
+See the skill itself for the full contract and
+`skills/codex-imagen/references/params.md` for the parameter reference.
+
 ## Updating
 
 Update this package explicitly:
